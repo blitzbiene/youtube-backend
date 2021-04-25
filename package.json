@@ -4,12 +4,16 @@
   "description": "nodejs based backend api for youtube clone",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "author": "harshit_and_muzammil",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "express": "^4.17.1",
+    "joi": "^17.4.0",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.12.5"
   }
 }
