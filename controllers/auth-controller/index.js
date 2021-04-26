@@ -1,7 +1,7 @@
 const bcrypt = require('bcrypt')
 const Joi = require('joi')
 const jwt = require('jsonwebtoken')
-const User = require("../models/User")
+const User = require("../../models/User")
 
 const signUp = async (req, res, next) => {
     try {

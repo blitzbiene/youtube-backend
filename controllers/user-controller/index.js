@@ -1,6 +1,6 @@
 const { findById } = require("../../models/User")
 const User = require("../../models/User")
-const toggleSubscribe = require('./toggle-subscribe');
+const toggleSubscribe = require('./toggleSubscribe');
 const getFeed = require('./getFeed');
 const editUser = require('./editUser');
 const searchUser = require('./searchUser');
