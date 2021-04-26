@@ -1,3 +1,4 @@
+const User = require("../../models/User")
 exports.toggleSubscribe = async (req, res, next) => {
     try {
         if (req.user.id === req.params.id) {
