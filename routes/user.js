@@ -8,7 +8,7 @@ const {
     getHistory,
     editUser,
     getFeed,
-} = require('../controllers/user')
+} = require('../controllers/user-controller')
 
 const { protect } = require('../middlewares/auth')
 

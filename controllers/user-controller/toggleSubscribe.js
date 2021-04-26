@@ -1,7 +1,11 @@
+<<<<<<< HEAD:controllers/user.js
 const Joi = require("joi")
 const User = require("../models/User")
 const Video = require("../models/Video")
 
+=======
+const User = require("../../models/User")
+>>>>>>> 367b253c8bd3941b6bbe980c89fce4c505008d3d:controllers/user-controller/toggleSubscribe.js
 exports.toggleSubscribe = async (req, res, next) => {
     try {
         if (req.user.id === req.params.id) {
@@ -32,6 +36,7 @@ exports.toggleSubscribe = async (req, res, next) => {
         return res.status(400).json({ success: false, message: e.message })
     }
 
+<<<<<<< HEAD:controllers/user.js
 }
 exports.getFeed = async (req, res, next) => {
     try {
@@ -101,3 +106,6 @@ function validate(req) {
     });
     return schema.validate(req)
 }
+=======
+}
+>>>>>>> 367b253c8bd3941b6bbe980c89fce4c505008d3d:controllers/user-controller/toggleSubscribe.js
