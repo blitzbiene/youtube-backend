@@ -7,7 +7,7 @@ const auth = require('./routes/auth');
 const user = require('./routes/user');
 
 const app = express()
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3000;
 
 const url = `mongodb+srv://tornado:1252712525@cluster0.clwue.mongodb.net/youtube?retryWrites=true&w=majority`;
 const connectionParams = {

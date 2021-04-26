@@ -60,9 +60,8 @@ function validate(req) {
         firstname: Joi.string().min(4).max(255).required(),
         lastname: Joi.string().min(4).max(255).required()
     });
-
     return schema.validate(req)
 }
 
 
-module.exports = { signUp, logIn }
+module.exports = { signUp, logIn, validate }

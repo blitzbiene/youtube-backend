@@ -10,7 +10,6 @@ exports.protect = async (req, res, next) => {
         const decoded = jwt.verify(req.headers.authorization.trim(), 'ahohfdsaosdf')
 
         const user = await User.findOne({ _id: decoded.userId })
-
         req.user = user
     }
     catch (e) {
