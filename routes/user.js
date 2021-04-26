@@ -17,6 +17,7 @@ router.get('/', protect, recommendChannels)
 router.get('/feed', protect, getFeed)
 router.get('/likedVideos', protect, getLikedVideos)
 router.get('/history', protect, getHistory)
+router.get('/recommendChannel', protect, recommendChannels)
 router.get('/:id', protect, getProfile)
 router.get('/:id/toggleSubscribe', protect, toggleSubscribe)
 

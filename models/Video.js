@@ -9,7 +9,8 @@ const videoSchema = mongoose.Schema({
     comments: [{ type: mongoose.Types.ObjectId, ref: "Comments" }],
     uploadedBy: { type: mongoose.Types.ObjectId, ref: "Users" },
     likes: { type: Number, default: 0 },
-    views: { type: Number, default: 0 }
+    views: { type: Number, default: 0 },
+    createdAt: { type: Date, default: Date.now() }
 });
 
 module.exports = mongoose.model("Videos", videoSchema);

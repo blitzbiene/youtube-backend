@@ -5,6 +5,7 @@ const Video = require("./models/Video");
 const Comment = require("./models/Comment");
 const auth = require('./routes/auth');
 const user = require('./routes/user');
+const video = require('./routes/video');
 
 const app = express()
 const PORT = process.env.PORT || 3000;
@@ -20,6 +21,7 @@ const connectionParams = {
 app.use(express.json())
 app.use('/auth', auth)
 app.use('/user', user)
+app.use('/video', video)
 
 mongoose.connect(url, connectionParams)
     .then(() => {

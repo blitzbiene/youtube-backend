@@ -20,8 +20,8 @@ exports.toggleSubscribe = async (req, res, next) => {
         else {
             user.subscribed.push(req.params.id)
         }
-
-        await user.save()
+        -
+            await user.save()
 
         return res.json({ success: true, data: {} })
     }

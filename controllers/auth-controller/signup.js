@@ -1,6 +1,6 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const {validate} = require("../../utils/joiValidate");
+const { validate } = require("../../utils/joiValidate");
 const User = require("../../models/User");
 
 exports.signUp = async (req, res, next) => {
@@ -17,6 +17,7 @@ exports.signUp = async (req, res, next) => {
         if (userName) throw new Error('Username already exists')
 
         const hashPassword = bcrypt.hashSync(password, 8);
+        // const hashPassword = password
 
         user = new User({
             email, password: hashPassword, firstname, lastname, username
