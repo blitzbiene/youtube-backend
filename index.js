@@ -1,8 +1,8 @@
 const express = require('express')
 const mongoose = require("mongoose");
 const User = require("./models/User");
-const Video = require("./models/Videos");
-const Comment = require("./models/Comments");
+const Video = require("./models/Video");
+const Comment = require("./models/Comment");
 const auth = require('./routes/auth');
 const user = require('./routes/user');
 
