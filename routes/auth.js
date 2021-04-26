@@ -5,6 +5,6 @@ const { protect } = require('../middlewares/auth')
 const router = express.Router()
 
 router.post('/signup', signUp)
-router.post('/login', protect, logIn)
+router.post('/login', logIn)
 
 module.exports = router
