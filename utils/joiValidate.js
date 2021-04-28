@@ -22,3 +22,11 @@ exports.validateVideo = (req) => {
 
     return schema.validate(req)
 }
+
+exports.validateComments = (req) => {
+    const schema = Joi.object({
+        text: Joi.string().min(1).max(512).required()
+    })
+
+    return schema.validate(req)
+}

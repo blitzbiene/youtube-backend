@@ -11,14 +11,14 @@ const {
 } = require('../controllers/user-controller')
 
 const { protect } = require('../middlewares/auth')
+const validateObjectId = require('../middlewares/validateObjectId')
 
 router.put('/', protect, editUser)
 router.get('/', protect, recommendChannels)
 router.get('/feed', protect, getFeed)
 router.get('/likedVideos', protect, getLikedVideos)
 router.get('/history', protect, getHistory)
-router.get('/recommendChannel', protect, recommendChannels)
-router.get('/:id', protect, getProfile)
-router.get('/:id/toggleSubscribe', protect, toggleSubscribe)
+router.get('/:id', protect, validateObjectId, getProfile)
+router.get('/:id/toggleSubscribe', protect, validateObjectId, toggleSubscribe)
 
 module.exports = router

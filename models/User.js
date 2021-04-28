@@ -12,9 +12,11 @@ const userSchema = mongoose.Schema({
     avatar: { type: String, default: defaultAvatar },
     coverImage: { type: String, default: defaultCoverImage },
     isAdmin: { type: Boolean, default: false },
+    subscribers: { type: Number, defalut: 0 },
     videos: [{ type: mongoose.Types.ObjectId, ref: 'Videos' }],
     subscribed: [{ type: mongoose.Types.ObjectId, ref: 'Users' }],
     likedVideos: [{ type: mongoose.Types.ObjectId, ref: "Videos" }],
+    dislikedVideos: [{ type: mongoose.Types.ObjectId, ref: "Videos" }],
     viewedVideos: [{ type: mongoose.Types.ObjectId, ref: "Videos" }]
 });
 

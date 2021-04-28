@@ -1,20 +1,18 @@
+const Joi = require("joi");
+const User = require('../../models/User')
+
 exports.editUser = async (req, res, next) => {
-    try {
-        const { error } = validate(req.body)
-        if (error) {
-            console.log(error.details[0]);
-            throw new Error(error.details[0].message)
-        }
-
-        const { avatar, coverImage, firstname, lastname, channelDescription } = req.body
-
-        const user = await User.findByIdAndUpdate(req.user.id, req.body)
-
-        res.json({ success: true, data: {} })
+    const { error } = validate(req.body)
+    if (error) {
+        console.log(error.details[0]);
+        throw new Error(error.details[0].message)
     }
-    catch (e) {
-        return res.status(400).json({ success: false, message: e.message })
-    }
+
+    const { avatar, coverImage, firstname, lastname, channelDescription } = req.body
+
+    const user = await User.findByIdAndUpdate(req.user.id, req.body)
+
+    res.json({ success: true, data: {} })
 }
 
 function validate(req) {

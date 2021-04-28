@@ -1,32 +1,30 @@
 const User = require("../../models/User")
+
 exports.toggleSubscribe = async (req, res, next) => {
-    try {
-        if (req.user.id === req.params.id) {
-            throw new Error("You cannot subscribe to your own channel")
-        }
-
-
-        let user = await User.findById(req.params.id)
-
-        if (!user) {
-            throw new Error("Invalid Channel Id")
-        }
-
-        user = await User.findById(req.user.id)
-
-        if (user.subscribed.includes(req.params.id)) {
-            user.subscribed.remove(req.params.id)
-        }
-        else {
-            user.subscribed.push(req.params.id)
-        }
-        -
-            await user.save()
-
-        return res.json({ success: true, data: {} })
+    if (req.user.id === req.params.id) {
+        throw new Error("You cannot subscribe to your own channel")
     }
-    catch (e) {
-        return res.status(400).json({ success: false, message: e.message })
+
+    const user = await User.findById(req.params.id)
+
+    if (!user) {
+        throw new Error("Invalid Channel Id")
     }
+
+    // user = await User.findById(req.user.id)
+
+    if (req.user.subscribed.includes(req.params.id)) {
+        req.user.subscribed.remove(req.params.id)
+        user.subscribers -= 1
+    }
+    else {
+        req.user.subscribed.push(req.params.id)
+        user.subscribers += 1
+    }
+
+    await user.save()
+    await req.user.save()
+
+    return res.json({ success: true, data: {} })
 
 }
